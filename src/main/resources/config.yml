@@ -8,7 +8,7 @@ command: "ban %player% Logging out while frozen!"
 
 # What actions should be disabled by the plugin when a player is frozen?
 # Available actions are: PLACE, BREAK, DAMAGE, MOVE, TELEPORT, INVENTORY, CHAT
-# There is a detailed description available for these actions here:
+# There is a detailed description available for these actions here: http://bit.ly/FreezeReloaded
 block-actions:
   - "PLACE"
   - "BREAK"
