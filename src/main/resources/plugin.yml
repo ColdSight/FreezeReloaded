@@ -1,0 +1,16 @@
+name: FreezeReloaded
+version: ${project.version}
+main: space.guus.plugins.freezereloaded.FreezeReloaded
+api-version: 1.13
+authors: [Gusuu]
+description: Simple freeze plugin.
+website: http://guus.space
+commands:
+  freeze:
+    description: Freeze command.
+    usage: /<command>
+permissions:
+  freeze.use:
+    description: Allows player to use /freeze command.
+  freeze.alert:
+    description: Allows player to see freeze alerts.
