@@ -6,9 +6,13 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 import space.guus.plugins.freezereloaded.FreezeReloaded;
 
+import java.util.HashMap;
+import java.util.UUID;
+
 public class PlayerMove implements Listener {
 
     private FreezeReloaded plugin;
+    private HashMap<UUID, Long> lastMessage = new HashMap<>();
 
     public PlayerMove(FreezeReloaded plugin) {
         this.plugin = plugin;
@@ -19,10 +23,21 @@ public class PlayerMove implements Listener {
         if (!plugin.blockedactions.contains("MOVE")) return;
         Player p = e.getPlayer();
         if(plugin.frozen.contains(p)){
-            e.setTo(e.getFrom());
-            plugin.sendIcon(p);
-            for(String s : plugin.getConfig().getStringList("frozen")){
-                p.sendMessage(plugin.translate(s));
+            e.setCancelled(true);
+            if(lastMessage.containsKey(p.getUniqueId())){
+                if(lastMessage.get(p.getUniqueId()) < System.currentTimeMillis()){
+                    plugin.sendIcon(p);
+                    for(String s : plugin.getConfig().getStringList("frozen")){
+                        p.sendMessage(plugin.translate(s));
+                    }
+                    lastMessage.put(p.getUniqueId(), System.currentTimeMillis() + 3000);
+                }
+            }else{
+                plugin.sendIcon(p);
+                for(String s : plugin.getConfig().getStringList("frozen")){
+                    p.sendMessage(plugin.translate(s));
+                }
+                lastMessage.put(p.getUniqueId(), System.currentTimeMillis() + 3000);
             }
         }
     }
