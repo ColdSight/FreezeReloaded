@@ -23,7 +23,11 @@ public class PlayerMove implements Listener {
         if (!plugin.blockedactions.contains("MOVE")) return;
         Player p = e.getPlayer();
         if(plugin.frozen.contains(p)){
-            e.setCancelled(true);
+            if(!plugin.getConfig().getBoolean("head-move")){
+                p.teleport(e.getFrom());
+            } else if (e.getFrom().distanceSquared(e.getTo()) > 0){
+                p.teleport(e.getFrom());
+            } else return;
             if(plugin.getConfig().getBoolean("notify-only-freeze")) return;
             if(lastMessage.containsKey(p.getUniqueId())){
                 if(lastMessage.get(p.getUniqueId()) < System.currentTimeMillis()){
