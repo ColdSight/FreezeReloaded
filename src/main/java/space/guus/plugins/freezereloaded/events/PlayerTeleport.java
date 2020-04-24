@@ -19,6 +19,7 @@ public class PlayerTeleport implements Listener {
         if (!plugin.blockedactions.contains("TELEPORT")) return;
         Player p = e.getPlayer();
         if(plugin.frozen.contains(p)){
+            if(e.getCause().equals(PlayerTeleportEvent.TeleportCause.UNKNOWN)) return;
             e.setCancelled(true);
         }
     }
