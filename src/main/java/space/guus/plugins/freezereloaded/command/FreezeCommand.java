@@ -31,6 +31,7 @@ public class FreezeCommand implements CommandExecutor {
                         if(p.hasPermission("freeze.reload")){
                             plugin.reloadConfig();
                             plugin.sendMsg(p, "reload");
+                            return true;
                         }else{
                             plugin.sendMsg((Player)sender, "no-permission");
                             return true;
