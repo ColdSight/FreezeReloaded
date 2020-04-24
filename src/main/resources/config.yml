@@ -24,6 +24,7 @@ icon: true
 # Messages
 prefix: "&4&l[&c&l!&4&l] "
 no-permission: "&cYou have no permission to execute this command!"
+reload: "&aSuccessfully reloaded the configuration file."
 frozen:
   - "&6You have been frozen! Do not logout or you will be banned!"
   - "&6Join our Discord server here: http://discord.royalcraft.co"

@@ -22,8 +22,20 @@ public class FreezeCommand implements CommandExecutor {
             if(p.hasPermission("freeze.use")){
                 if(args.length == 0){
                     p.sendMessage(plugin.translate("&cWrong usage! Usage: /freeze <player>"));
+                    if(p.hasPermission("freeze.reload")){
+                        p.sendMessage(plugin.translate("&cUse /freeze reload to reload the plugin."));
+                    }
                     return true;
                 }else{
+                    if(args[0].equalsIgnoreCase("reload")){
+                        if(p.hasPermission("freeze.reload")){
+                            plugin.reloadConfig();
+                            plugin.sendMsg(p, "reload");
+                        }else{
+                            plugin.sendMsg((Player)sender, "no-permission");
+                            return true;
+                        }
+                    }
                     Player target = Bukkit.getPlayerExact(args[0]);
 
                     if(target == null){

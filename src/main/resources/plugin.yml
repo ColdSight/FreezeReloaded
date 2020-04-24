@@ -14,3 +14,5 @@ permissions:
     description: Allows player to use /freeze command.
   freeze.alert:
     description: Allows player to see freeze alerts.
+  freeze.reload:
+    description: Allows player to reload the plugin.
