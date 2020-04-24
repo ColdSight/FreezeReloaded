@@ -18,6 +18,7 @@ block-actions:
   - "INVENTORY"
 #  - "CHAT"
   - "DROP"
+  - "INTERACT"
 
 # Should the ! icon be sent when a player is frozen? (http://prntscr.com/s3x7pm)
 icon: true
@@ -43,6 +44,7 @@ unfreeze: "&aYou unfroze %player%."
 inventory: "&cYou may not perform that action while frozen!"
 chat: "&cYou may not use chat while frozen!"
 drop: "&cYou cannot drop items while frozen!"
+interact: "&cYou cannot interact with this block while frozen!"
 
 # This will alert all staff members with the
 # freeze.alert permission.
