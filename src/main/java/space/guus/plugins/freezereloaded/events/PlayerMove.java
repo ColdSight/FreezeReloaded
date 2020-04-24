@@ -31,14 +31,14 @@ public class PlayerMove implements Listener {
                     for(String s : plugin.getConfig().getStringList("frozen")){
                         p.sendMessage(plugin.translate(s));
                     }
-                    lastMessage.put(p.getUniqueId(), System.currentTimeMillis() + 3000);
+                    lastMessage.put(p.getUniqueId(), System.currentTimeMillis() + 10000);
                 }
             }else{
                 plugin.sendIcon(p);
                 for(String s : plugin.getConfig().getStringList("frozen")){
                     p.sendMessage(plugin.translate(s));
                 }
-                lastMessage.put(p.getUniqueId(), System.currentTimeMillis() + 3000);
+                lastMessage.put(p.getUniqueId(), System.currentTimeMillis() + 10000);
             }
         }
     }
