@@ -24,6 +24,7 @@ public class PlayerMove implements Listener {
         Player p = e.getPlayer();
         if(plugin.frozen.contains(p)){
             e.setCancelled(true);
+            if(plugin.getConfig().getBoolean("notify-only-freeze")) return;
             if(lastMessage.containsKey(p.getUniqueId())){
                 if(lastMessage.get(p.getUniqueId()) < System.currentTimeMillis()){
                     plugin.sendIcon(p);

@@ -53,6 +53,10 @@ public class FreezeCommand implements CommandExecutor {
                     plugin.frozen.add(target);
                     target.closeInventory();
                     p.sendMessage(plugin.translate(plugin.getConfig().getString("freeze").replaceAll("%player%", target.getDisplayName())));
+                    plugin.sendIcon(target);
+                    for(String s : plugin.getConfig().getStringList("frozen")){
+                        target.sendMessage(plugin.translate(s));
+                    }
                     return true;
                 }
             }else{

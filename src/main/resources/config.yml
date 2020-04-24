@@ -21,6 +21,10 @@ block-actions:
 # Should the ! icon be sent when a player is frozen? (http://prntscr.com/s3x7pm)
 icon: true
 
+# Should the "you have been frozen message" only be displayed on /freeze
+# Setting this to true will no longer display the message on player move.
+notify-only-freeze: false
+
 # Messages
 prefix: "&4&l[&c&l!&4&l] "
 no-permission: "&cYou have no permission to execute this command!"
