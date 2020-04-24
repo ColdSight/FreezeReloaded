@@ -25,9 +25,6 @@ icon: true
 # Setting this to true will no longer display the message on player move.
 notify-only-freeze: false
 
-# Should the player be able to move his head while frozen?
-head-move: true
-
 # Messages
 prefix: "&4&l[&c&l!&4&l] "
 no-permission: "&cYou have no permission to execute this command!"
