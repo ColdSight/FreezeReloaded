@@ -12,7 +12,6 @@ public final class FreezeReloaded extends JavaPlugin {
 
     public ArrayList<Player> frozen;
     public ArrayList<String> blockedactions;
-    private boolean icon;
 
     @Override
     public void onEnable() {
@@ -50,9 +49,6 @@ public final class FreezeReloaded extends JavaPlugin {
 
         // register blocked actions
         this.blockedactions.addAll(getConfig().getStringList("block-actions"));
-
-        // other stuff
-        this.icon = getConfig().getBoolean("icon");
     }
 
     public String translate(String msg){
@@ -64,7 +60,7 @@ public final class FreezeReloaded extends JavaPlugin {
     }
 
     public void sendIcon(Player p){
-        if(!icon) return;
+        if(!getConfig().getBoolean("icon")) return;
         p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&f████&c█&f████"));
         p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&f███&c█&6█&c█&f███"));
         p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&f██&c█&6█&0█&6█&c█&f██"));
