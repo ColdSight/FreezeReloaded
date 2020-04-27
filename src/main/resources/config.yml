@@ -19,6 +19,7 @@ block-actions:
 #  - "CHAT"
   - "DROP"
   - "INTERACT"
+  - "FOOD"
 
 # Should the "!" icon be sent when a player is frozen? (http://prntscr.com/s3x7pm)
 icon: true

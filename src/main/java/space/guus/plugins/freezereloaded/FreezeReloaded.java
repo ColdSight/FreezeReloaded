@@ -43,6 +43,7 @@ public final class FreezeReloaded extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerChat(this), this);
         getServer().getPluginManager().registerEvents(new PlayerDrop(this), this);
         getServer().getPluginManager().registerEvents(new PlayerInteract(this), this);
+        getServer().getPluginManager().registerEvents(new PlayerFoodLevelChange(this), this);
 
         getServer().getPluginManager().registerEvents(new BlockBreak(this), this);
         getServer().getPluginManager().registerEvents(new BlockPlace(this), this);
