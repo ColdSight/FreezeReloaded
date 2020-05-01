@@ -1,0 +1,2 @@
+# FreezeReloaded
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ef78f603ef404adb8d150703180023b4)](https://app.codacy.com/manual/gusuu1/FreezeReloaded?utm_source=github.com&utm_medium=referral&utm_content=gusuu1/FreezeReloaded&utm_campaign=Badge_Grade_Dashboard)
