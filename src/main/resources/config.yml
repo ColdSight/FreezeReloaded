@@ -18,7 +18,6 @@ block-actions:
   - "INVENTORY"
 #  - "CHAT"
   - "DROP"
-  - "INTERACT"
   - "FOOD"
   - "GODMODE"
 
