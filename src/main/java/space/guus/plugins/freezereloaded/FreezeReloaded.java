@@ -1,3 +1,9 @@
+/*
+ * FreezeReloaded - Copyright (c) 2020.
+ * Author: Gusuu/Mugai
+ * GitHub Repository: https://github.com/gusuu1/FreezeReloaded
+ */
+
 package space.guus.plugins.freezereloaded;
 
 import org.bukkit.ChatColor;
