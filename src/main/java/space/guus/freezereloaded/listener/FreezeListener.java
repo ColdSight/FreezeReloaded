@@ -4,7 +4,7 @@
  * GitHub Repository: https://github.com/gusuu1/FreezeReloaded
  */
 
-package space.guus.plugins.freezereloaded.listener;
+package space.guus.freezereloaded.listener;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.EntityType;
@@ -19,7 +19,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.*;
-import space.guus.plugins.freezereloaded.FreezeReloaded;
+import space.guus.freezereloaded.FreezeReloaded;
 
 import java.util.HashMap;
 import java.util.UUID;

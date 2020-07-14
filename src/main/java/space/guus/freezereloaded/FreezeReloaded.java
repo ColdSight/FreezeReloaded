@@ -4,14 +4,14 @@
  * GitHub Repository: https://github.com/gusuu1/FreezeReloaded
  */
 
-package space.guus.plugins.freezereloaded;
+package space.guus.freezereloaded;
 
 import org.bstats.bukkit.Metrics;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-import space.guus.plugins.freezereloaded.command.FreezeCommand;
-import space.guus.plugins.freezereloaded.listener.*;
+import space.guus.freezereloaded.command.FreezeCommand;
+import space.guus.freezereloaded.listener.FreezeListener;
 
 import java.util.ArrayList;
 

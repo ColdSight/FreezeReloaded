@@ -4,14 +4,14 @@
  * GitHub Repository: https://github.com/gusuu1/FreezeReloaded
  */
 
-package space.guus.plugins.freezereloaded.command;
+package space.guus.freezereloaded.command;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import space.guus.plugins.freezereloaded.FreezeReloaded;
+import space.guus.freezereloaded.FreezeReloaded;
 
 public class FreezeCommand implements CommandExecutor {
 

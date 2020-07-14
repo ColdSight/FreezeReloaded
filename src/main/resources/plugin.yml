@@ -1,6 +1,6 @@
 name: FreezeReloaded
 version: ${project.version}
-main: space.guus.plugins.freezereloaded.FreezeReloaded
+main: space.guus.freezereloaded.FreezeReloaded
 api-version: 1.13
 authors: [Gusuu]
 description: Simple freeze plugin.
