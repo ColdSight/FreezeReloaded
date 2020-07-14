@@ -11,7 +11,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import space.guus.plugins.freezereloaded.command.FreezeCommand;
-import space.guus.plugins.freezereloaded.events.*;
+import space.guus.plugins.freezereloaded.listener.*;
 
 import java.util.ArrayList;
 
@@ -45,14 +45,7 @@ public final class FreezeReloaded extends JavaPlugin {
         getCommand("freeze").setExecutor(new FreezeCommand(this));
 
         // register events
-        getServer().getPluginManager().registerEvents(new PlayerMove(this), this);
-        getServer().getPluginManager().registerEvents(new PlayerDamage(this), this);
-        getServer().getPluginManager().registerEvents(new PlayerQuit(this), this);
-        getServer().getPluginManager().registerEvents(new PlayerInventory(this), this);
-        getServer().getPluginManager().registerEvents(new PlayerTeleport(this), this);
-        getServer().getPluginManager().registerEvents(new PlayerChat(this), this);
-        getServer().getPluginManager().registerEvents(new PlayerDrop(this), this);
-        getServer().getPluginManager().registerEvents(new PlayerFoodLevelChange(this), this);
+        getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
 
         getServer().getPluginManager().registerEvents(new BlockBreak(this), this);
         getServer().getPluginManager().registerEvents(new BlockPlace(this), this);
