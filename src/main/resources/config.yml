@@ -34,7 +34,7 @@ no-permission: "&cYou have no permission to execute this command!"
 reload: "&aSuccessfully reloaded the configuration file."
 frozen:
   - "&6You have been frozen! Do not logout or you will be banned!"
-  - "&6Join our Discord server here: http://discord.royalcraft.co"
+  - "&6Join our Discord server here: http://discord.server.com"
 no-attack: "&cThis player is frozen, you may not attack them!"
 no-attack-frozen: "&cYou cannot attack while frozen."
 break: "&cYou cannot break blocks while frozen!"
