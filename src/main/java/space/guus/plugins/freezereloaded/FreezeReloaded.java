@@ -6,6 +6,7 @@
 
 package space.guus.plugins.freezereloaded;
 
+import org.bstats.bukkit.Metrics;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -25,6 +26,9 @@ public final class FreezeReloaded extends JavaPlugin {
         saveDefaultConfig();
 
         this.register();
+
+        // Add bStats metrics
+        new Metrics(this, 8190);
 
         getLogger().info(String.format("FreezeReloaded (v%s) by Gusuu is now enabled.", getDescription().getVersion()));
     }
