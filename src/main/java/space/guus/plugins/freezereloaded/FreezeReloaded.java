@@ -44,11 +44,8 @@ public final class FreezeReloaded extends JavaPlugin {
         // register commands
         getCommand("freeze").setExecutor(new FreezeCommand(this));
 
-        // register events
-        getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
-
-        getServer().getPluginManager().registerEvents(new BlockBreak(this), this);
-        getServer().getPluginManager().registerEvents(new BlockPlace(this), this);
+        // register listener
+        getServer().getPluginManager().registerEvents(new FreezeListener(this), this);
 
         // register blocked actions
         this.blockedactions.addAll(getConfig().getStringList("block-actions"));

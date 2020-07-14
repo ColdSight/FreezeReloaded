@@ -12,6 +12,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
@@ -22,12 +24,12 @@ import space.guus.plugins.freezereloaded.FreezeReloaded;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class PlayerListener implements Listener {
+public class FreezeListener implements Listener {
 
     private FreezeReloaded plugin;
     private HashMap<UUID, Long> lastMessage = new HashMap<>();
 
-    public PlayerListener(FreezeReloaded plugin) {
+    public FreezeListener(FreezeReloaded plugin) {
         this.plugin = plugin;
     }
 
@@ -173,6 +175,30 @@ public class PlayerListener implements Listener {
             }
         }
     }
+
+    @EventHandler
+    public void onBlockPlace(BlockPlaceEvent e){
+        if (!plugin.blockedactions.contains("PLACE")) return;
+        Player p = e.getPlayer();
+
+        if(plugin.frozen.contains(p)){
+            e.setCancelled(true);
+            plugin.sendMsg(p, "place");
+        }
+    }
+
+    @EventHandler
+    public void onBlockBreak(BlockBreakEvent e){
+        if (!plugin.blockedactions.contains("BREAK")) return;
+        Player p = e.getPlayer();
+
+        if(plugin.frozen.contains(p)){
+            e.setCancelled(true);
+            plugin.sendMsg(p, "break");
+        }
+    }
+
+
 
 
 }
