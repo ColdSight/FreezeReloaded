@@ -46,6 +46,9 @@ inventory: "&cYou may not perform that action while frozen!"
 chat: "&cYou may not use chat while frozen!"
 drop: "&cYou cannot drop items while frozen!"
 interact: "&cYou cannot interact with this block while frozen!"
+only-players: "Sorry, only players may execute this command."
+wrong-usage: "&cWrong usage! Usage: /freeze <player>"
+reload-usage: "&cUse /freeze reload to reload the plugin."
 
 # This will alert all staff members with the
 # freeze.alert permission.

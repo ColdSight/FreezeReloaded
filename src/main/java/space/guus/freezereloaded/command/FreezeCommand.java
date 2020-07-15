@@ -28,9 +28,9 @@ public class FreezeCommand implements CommandExecutor {
             Player p = (Player) sender;
             if(p.hasPermission("freeze.use")){
                 if(args.length == 0){
-                    p.sendMessage(plugin.translate("&cWrong usage! Usage: /freeze <player>"));
+                    p.sendMessage(plugin.translate(plugin.getConfig().getString("wrong-usage")));
                     if(p.hasPermission("freeze.reload")){
-                        p.sendMessage(plugin.translate("&cUse /freeze reload to reload the plugin."));
+                        p.sendMessage(plugin.translate(plugin.getConfig().getString("reload-usage")));
                     }
                     return true;
                 }else{
@@ -70,7 +70,7 @@ public class FreezeCommand implements CommandExecutor {
                 plugin.sendMsg((Player)sender, "no-permission");
             }
         }else{
-            plugin.getLogger().warning("Sorry, only players may execute this command.");
+            plugin.getLogger().warning(plugin.getConfig().getString("only-players"));
         }
         return true;
     }
