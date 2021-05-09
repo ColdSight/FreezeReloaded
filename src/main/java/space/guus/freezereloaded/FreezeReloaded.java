@@ -1,10 +1,3 @@
-/*
- * FreezeReloaded - Copyright (c) 2020.
- * Author: Gusuu/Mugai
- * GitHub Repository: https://github.com/gusuu1/FreezeReloaded
- * SpigotMC: https://www.spigotmc.org/resources/freezereloaded-1-8-1-15-simple-freeze-plugin-highly-configurable.77762/
- */
-
 package space.guus.freezereloaded;
 
 import org.bukkit.ChatColor;
