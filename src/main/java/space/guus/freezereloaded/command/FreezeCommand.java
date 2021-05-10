@@ -47,6 +47,7 @@ public class FreezeCommand implements CommandExecutor {
                     if(plugin.frozen.contains(target)){
                         plugin.frozen.remove(target);
                         p.sendMessage(plugin.translate(plugin.getConfig().getString("unfreeze").replaceAll("%player%", target.getDisplayName())));
+                        target.sendMessage(plugin.translate(plugin.getConfig().getString("unfrozen-player")));
                         return true;
                     }
 
