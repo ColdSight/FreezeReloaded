@@ -101,7 +101,7 @@ public class FreezeListener implements Listener {
 
             for(Player pp : Bukkit.getOnlinePlayers()){
                 if(pp.hasPermission("freeze.alert")){
-                    pp.sendMessage(plugin.translate(plugin.getMessages().getString("Alert").replaceAll("%player%", p.getDisplayName())));
+                    pp.sendMessage(plugin.translate(plugin.getMessages().getString("Staff.Alert").replaceAll("%player%", p.getDisplayName())));
                 }
             }
         }

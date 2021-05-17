@@ -1,7 +1,6 @@
 # Messages file for FreezeReloaded by Gusuu
 
 No-Permission: "&cYou have no permission to execute this command!"
-Wrong-Usage: "&cWrong usage! Usage: /freeze <player>"
 
 Frozen:
   - "&6You have been frozen! Do not logout or you will be banned!"
@@ -28,6 +27,6 @@ Player:
 
 Only-Players: "Sorry, only players may execute this command."
 
-# This will alert all staff members with the
-# freeze.alert permission.
-Alert: "&c%player% &elogged out while frozen!"
+Staff:
+  Alert: "&c%player% &elogged out while frozen!"
+  Wrong-Usage: "&cWrong usage! Usage: /freeze <player>"

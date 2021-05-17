@@ -21,7 +21,7 @@ public class FreezeCommand implements CommandExecutor {
             Player p = (Player) sender;
             if(p.hasPermission("freeze.use")){
                 if(args.length == 0){
-                    p.sendMessage(plugin.translate(plugin.getMessages().getString("Wrong-Usage")));
+                    p.sendMessage(plugin.translate(plugin.getMessages().getString("Staff.Wrong-Usage")));
                     if(p.hasPermission("freeze.reload")){
                         p.sendMessage(plugin.translate(plugin.getMessages().getString("Reload.Usage")));
                     }
