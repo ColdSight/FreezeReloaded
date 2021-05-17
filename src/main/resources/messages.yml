@@ -30,3 +30,4 @@ Only-Players: "Sorry, only players may execute this command."
 Staff:
   Alert: "&c%player% &elogged out while frozen!"
   Wrong-Usage: "&cWrong usage! Usage: /freeze <player>"
+  Chat-Notify: "&e[FROZEN-CHAT] &c%player%: &e%message%"
