@@ -34,7 +34,7 @@ public class FreezeListener implements Listener {
         Player p = (Player)e.getWhoClicked();
         if(plugin.frozen.contains(p)){
             e.setCancelled(true);
-            plugin.sendMsg(p, "inventory");
+            plugin.sendMsg(p, "Player.Inventory");
         }
     }
 
@@ -58,14 +58,14 @@ public class FreezeListener implements Listener {
             if(lastMessage.containsKey(p.getUniqueId())){
                 if(lastMessage.get(p.getUniqueId()) < System.currentTimeMillis()){
                     plugin.sendIcon(p);
-                    for(String s : plugin.getConfig().getStringList("frozen")){
+                    for(String s : plugin.getMessages().getStringList("Frozen")){
                         p.sendMessage(plugin.translate(s));
                     }
                     lastMessage.put(p.getUniqueId(), System.currentTimeMillis() + 10000);
                 }
             }else{
                 plugin.sendIcon(p);
-                for(String s : plugin.getConfig().getStringList("frozen")){
+                for(String s : plugin.getMessages().getStringList("Frozen")){
                     p.sendMessage(plugin.translate(s));
                 }
                 lastMessage.put(p.getUniqueId(), System.currentTimeMillis() + 10000);
@@ -79,7 +79,7 @@ public class FreezeListener implements Listener {
         Player p = e.getPlayer();
         if(plugin.frozen.contains(p) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)){
             e.setCancelled(true);
-            plugin.sendMsg(p, "interact");
+            plugin.sendMsg(p, "Player.Interact");
         }
     }
 
@@ -101,7 +101,7 @@ public class FreezeListener implements Listener {
 
             for(Player pp : Bukkit.getOnlinePlayers()){
                 if(pp.hasPermission("freeze.alert")){
-                    pp.sendMessage(plugin.translate(plugin.getConfig().getString("alert").replaceAll("%player%", p.getDisplayName())));
+                    pp.sendMessage(plugin.translate(plugin.getMessages().getString("Alert").replaceAll("%player%", p.getDisplayName())));
                 }
             }
         }
@@ -124,7 +124,7 @@ public class FreezeListener implements Listener {
 
         if(plugin.frozen.contains(p)){
             e.setCancelled(true);
-            plugin.sendMsg(p, "drop");
+            plugin.sendMsg(p, "Player.Drop");
         }
     }
 
@@ -134,7 +134,7 @@ public class FreezeListener implements Listener {
         Player p = e.getPlayer();
         if(plugin.frozen.contains(p)){
             e.setCancelled(true);
-            plugin.sendMsg(p, "chat");
+            plugin.sendMsg(p, "Player.Chat");
         }
     }
 
@@ -146,7 +146,7 @@ public class FreezeListener implements Listener {
             if(plugin.frozen.contains(p)){
                 e.setCancelled(true);
                 if(e.getDamager() instanceof Player){
-                    plugin.sendMsg((Player)e.getDamager(), "no-attack");
+                    plugin.sendMsg((Player)e.getDamager(), "Player.No-Attack");
                 }
             }
         }
@@ -154,7 +154,7 @@ public class FreezeListener implements Listener {
             Player p = (Player)e.getDamager();
             if(plugin.frozen.contains(p)){
                 e.setCancelled(true);
-                plugin.sendMsg(p, "no-attack-frozen");
+                plugin.sendMsg(p, "Player.No-Attack-Frozen");
             }
         }
     }
@@ -177,7 +177,7 @@ public class FreezeListener implements Listener {
 
         if(plugin.frozen.contains(p)){
             e.setCancelled(true);
-            plugin.sendMsg(p, "place");
+            plugin.sendMsg(p, "Player.Place");
         }
     }
 
@@ -188,7 +188,7 @@ public class FreezeListener implements Listener {
 
         if(plugin.frozen.contains(p)){
             e.setCancelled(true);
-            plugin.sendMsg(p, "break");
+            plugin.sendMsg(p, "Player.Break");
         }
     }
 
