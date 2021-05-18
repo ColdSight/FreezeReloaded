@@ -29,7 +29,7 @@ public class FreezeCommand implements CommandExecutor {
                 }else{
                     if(args[0].equalsIgnoreCase("reload")){
                         if(p.hasPermission("freeze.reload")){
-                            plugin.reloadConfig();
+                            plugin.reload();
                             plugin.sendMsg(p, "Reload.Success");
                             return true;
                         }else{

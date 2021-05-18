@@ -88,4 +88,9 @@ public final class FreezeReloaded extends JavaPlugin {
     public FileConfiguration getMessages(){
         return this.messagesConfiguration;
     }
+
+    public void reload(){
+        this.reloadConfig();
+        this.createMessages();
+    }
 }
