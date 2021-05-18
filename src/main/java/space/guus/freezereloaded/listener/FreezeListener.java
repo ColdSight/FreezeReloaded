@@ -13,6 +13,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.*;
+import space.guus.freezereloaded.AlertType;
 import space.guus.freezereloaded.FreezeReloaded;
 
 import java.util.HashMap;
@@ -34,7 +35,7 @@ public class FreezeListener implements Listener {
         Player p = (Player)e.getWhoClicked();
         if(plugin.frozen.contains(p)){
             e.setCancelled(true);
-            plugin.sendMsg(p, "inventory");
+            plugin.sendMsg(p, "Player.Inventory");
         }
     }
 
@@ -58,14 +59,14 @@ public class FreezeListener implements Listener {
             if(lastMessage.containsKey(p.getUniqueId())){
                 if(lastMessage.get(p.getUniqueId()) < System.currentTimeMillis()){
                     plugin.sendIcon(p);
-                    for(String s : plugin.getConfig().getStringList("frozen")){
+                    for(String s : plugin.getMessages().getStringList("Frozen")){
                         p.sendMessage(plugin.translate(s));
                     }
                     lastMessage.put(p.getUniqueId(), System.currentTimeMillis() + 10000);
                 }
             }else{
                 plugin.sendIcon(p);
-                for(String s : plugin.getConfig().getStringList("frozen")){
+                for(String s : plugin.getMessages().getStringList("Frozen")){
                     p.sendMessage(plugin.translate(s));
                 }
                 lastMessage.put(p.getUniqueId(), System.currentTimeMillis() + 10000);
@@ -79,7 +80,7 @@ public class FreezeListener implements Listener {
         Player p = e.getPlayer();
         if(plugin.frozen.contains(p) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)){
             e.setCancelled(true);
-            plugin.sendMsg(p, "interact");
+            plugin.sendMsg(p, "Player.Interact");
         }
     }
 
@@ -99,11 +100,7 @@ public class FreezeListener implements Listener {
             plugin.frozen.remove(p);
             plugin.getServer().dispatchCommand(plugin.getServer().getConsoleSender(), plugin.getConfig().getString("command").replaceAll("%player%", p.getDisplayName()));
 
-            for(Player pp : Bukkit.getOnlinePlayers()){
-                if(pp.hasPermission("freeze.alert")){
-                    pp.sendMessage(plugin.translate(plugin.getConfig().getString("alert").replaceAll("%player%", p.getDisplayName())));
-                }
-            }
+            this.alertStaff(p, null, AlertType.LOGOUT);
         }
     }
 
@@ -124,7 +121,7 @@ public class FreezeListener implements Listener {
 
         if(plugin.frozen.contains(p)){
             e.setCancelled(true);
-            plugin.sendMsg(p, "drop");
+            plugin.sendMsg(p, "Player.Drop");
         }
     }
 
@@ -134,7 +131,8 @@ public class FreezeListener implements Listener {
         Player p = e.getPlayer();
         if(plugin.frozen.contains(p)){
             e.setCancelled(true);
-            plugin.sendMsg(p, "chat");
+            plugin.sendMsg(p, "Player.Chat");
+            this.alertStaff(p, e.getMessage(), AlertType.CHAT);
         }
     }
 
@@ -146,7 +144,7 @@ public class FreezeListener implements Listener {
             if(plugin.frozen.contains(p)){
                 e.setCancelled(true);
                 if(e.getDamager() instanceof Player){
-                    plugin.sendMsg((Player)e.getDamager(), "no-attack");
+                    plugin.sendMsg((Player)e.getDamager(), "Player.No-Attack");
                 }
             }
         }
@@ -154,7 +152,7 @@ public class FreezeListener implements Listener {
             Player p = (Player)e.getDamager();
             if(plugin.frozen.contains(p)){
                 e.setCancelled(true);
-                plugin.sendMsg(p, "no-attack-frozen");
+                plugin.sendMsg(p, "Player.No-Attack-Frozen");
             }
         }
     }
@@ -177,7 +175,7 @@ public class FreezeListener implements Listener {
 
         if(plugin.frozen.contains(p)){
             e.setCancelled(true);
-            plugin.sendMsg(p, "place");
+            plugin.sendMsg(p, "Player.Place");
         }
     }
 
@@ -188,7 +186,22 @@ public class FreezeListener implements Listener {
 
         if(plugin.frozen.contains(p)){
             e.setCancelled(true);
-            plugin.sendMsg(p, "break");
+            plugin.sendMsg(p, "Player.Break");
+        }
+    }
+
+    private void alertStaff(Player player, String message, AlertType type){
+        for(Player pp : Bukkit.getOnlinePlayers()){
+            if(pp.hasPermission("freeze.alert")){
+                if(type.equals(AlertType.LOGOUT)){
+                    pp.sendMessage(plugin.translate(plugin.getMessages().getString("Staff.Alert").replaceAll("%player%", player.getDisplayName())));
+                }else if(type.equals(AlertType.CHAT)){
+                    pp.sendMessage(plugin.translate(plugin.getMessages().getString("Staff.Chat-Notify")
+                            .replaceAll("%player%", player.getDisplayName())
+                            .replaceAll("%message%", message)
+                    ));
+                }
+            }
         }
     }
 

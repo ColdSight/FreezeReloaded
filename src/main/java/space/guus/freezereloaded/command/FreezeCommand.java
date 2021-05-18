@@ -21,50 +21,50 @@ public class FreezeCommand implements CommandExecutor {
             Player p = (Player) sender;
             if(p.hasPermission("freeze.use")){
                 if(args.length == 0){
-                    p.sendMessage(plugin.translate(plugin.getConfig().getString("wrong-usage")));
+                    p.sendMessage(plugin.translate(plugin.getMessages().getString("Staff.Wrong-Usage")));
                     if(p.hasPermission("freeze.reload")){
-                        p.sendMessage(plugin.translate(plugin.getConfig().getString("reload-usage")));
+                        p.sendMessage(plugin.translate(plugin.getMessages().getString("Reload.Usage")));
                     }
                     return true;
                 }else{
                     if(args[0].equalsIgnoreCase("reload")){
                         if(p.hasPermission("freeze.reload")){
-                            plugin.reloadConfig();
-                            plugin.sendMsg(p, "reload");
+                            plugin.reload();
+                            plugin.sendMsg(p, "Reload.Success");
                             return true;
                         }else{
-                            plugin.sendMsg((Player)sender, "no-permission");
+                            plugin.sendMsg((Player)sender, "No-Permission");
                             return true;
                         }
                     }
                     Player target = Bukkit.getPlayerExact(args[0]);
 
                     if(target == null){
-                        plugin.sendMsg(p, "no-player");
+                        plugin.sendMsg(p, "Player.Not-Found");
                         return true;
                     }
 
                     if(plugin.frozen.contains(target)){
                         plugin.frozen.remove(target);
-                        p.sendMessage(plugin.translate(plugin.getConfig().getString("unfreeze").replaceAll("%player%", target.getDisplayName())));
-                        target.sendMessage(plugin.translate(plugin.getConfig().getString("unfrozen-player")));
+                        p.sendMessage(plugin.translate(plugin.getMessages().getString("Player.Unfreeze").replaceAll("%player%", target.getDisplayName())));
+                        target.sendMessage(plugin.translate(plugin.getMessages().getString("Player.Unfreeze-Notify")));
                         return true;
                     }
 
                     plugin.frozen.add(target);
                     target.closeInventory();
-                    p.sendMessage(plugin.translate(plugin.getConfig().getString("freeze").replaceAll("%player%", target.getDisplayName())));
+                    p.sendMessage(plugin.translate(plugin.getMessages().getString("Player.Freeze").replaceAll("%player%", target.getDisplayName())));
                     plugin.sendIcon(target);
-                    for(String s : plugin.getConfig().getStringList("frozen")){
+                    for(String s : plugin.getMessages().getStringList("Frozen")){
                         target.sendMessage(plugin.translate(s));
                     }
                     return true;
                 }
             }else{
-                plugin.sendMsg((Player)sender, "no-permission");
+                plugin.sendMsg((Player)sender, "No-Permission");
             }
         }else{
-            plugin.getLogger().warning(plugin.getConfig().getString("only-players"));
+            plugin.getLogger().warning(plugin.getMessages().getString("Only-Players"));
         }
         return true;
     }

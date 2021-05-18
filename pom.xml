@@ -6,7 +6,7 @@
 
     <groupId>space.guus.plugins</groupId>
     <artifactId>FreezeReloaded</artifactId>
-    <version>1.5.1</version>
+    <version>1.5.2-DEVELOPMENT</version>
     <packaging>jar</packaging>
 
     <name>FreezeReloaded</name>

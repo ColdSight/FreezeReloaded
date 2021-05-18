@@ -1,0 +1,33 @@
+# Messages file for FreezeReloaded by Gusuu
+
+No-Permission: "&cYou have no permission to execute this command!"
+
+Frozen:
+  - "&6You have been frozen! Do not logout or you will be banned!"
+  - "&6Join our Discord server here: http://discord.server.com"
+  - "&6You have &c5 MINUTES &6to join before you will be banned."
+
+Reload:
+  Usage: "&cUse /freeze reload to reload the plugin."
+  Success: "&aSuccessfully reloaded the configuration file."
+
+Player:
+  Not-Found: "&cThat player cannot be found."
+  Freeze: "&cYou froze %player%."
+  Unfreeze: "&aYou unfroze %player%."
+  Unfreeze-Notify: "&aYou have been unfrozen."
+  No-Attack: "&cThis player is frozen, you may not attack them!"
+  No-Attack-Frozen: "&cYou cannot attack while frozen."
+  Break: "&cYou cannot break blocks while frozen!"
+  Place: "&cYou cannot place blocks while frozen!"
+  Inventory: "&cYou may not perform that action while frozen!"
+  Chat: "&cYou may not use chat while frozen!"
+  Drop: "&cYou cannot drop items while frozen!"
+  Interact: "&cYou cannot interact with this block while frozen!"
+
+Only-Players: "Sorry, only players may execute this command."
+
+Staff:
+  Alert: "&c%player% &elogged out while frozen!"
+  Wrong-Usage: "&cWrong usage! Usage: /freeze <player>"
+  Chat-Notify: "&e[FROZEN-CHAT] &c%player%: &e%message%"
